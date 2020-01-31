@@ -90,7 +90,8 @@ func basicAuth(user, password string, handler http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		u, p, ok := r.BasicAuth()
 		if !ok || u != user || p != password {
-			w.WriteHeader(http.StatusForbidden)
+			w.Header().Set("WWW-Authenticate", `Basic realm="Restricted"`)
+			w.WriteHeader(http.StatusUnauthorized)
 			return
 		}
 

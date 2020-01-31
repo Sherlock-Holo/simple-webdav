@@ -36,15 +36,15 @@ func Test_basicAuth(t *testing.T) {
 			wantCode: 200,
 		},
 		{
-			name:     "403 forbidden not set",
-			wantCode: 403,
+			name:     "401 Unauthorized not set",
+			wantCode: 401,
 		},
 		{
-			name: "403 forbidden set",
+			name: "401 Unauthorized set",
 			args: args{
 				set: true,
 			},
-			wantCode: 403,
+			wantCode: 401,
 		},
 	}
 
