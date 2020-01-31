@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Get dependencies
-      run: go mod downlod
+      run: go mod download
 
     - name: Test
       run: go test -v -race ./...
